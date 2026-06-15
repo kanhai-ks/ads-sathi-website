@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { motion } from "framer-motion";
 import {
@@ -47,7 +45,7 @@ const Hero = () => {
               design, and digital advertising solutions.
             </p>
 
-        
+            
             {/* Buttons */}
             <div className="flex flex-wrap gap-4 mt-10">
               <button className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:scale-105 transition">
@@ -97,7 +95,7 @@ const Hero = () => {
                 duration: 3,
                 repeat: Infinity,
               }}
-              className="absolute -bottom-5 left-0 bg-white text-gray-800 rounded-2xl p-5 shadow-xl"
+              className="absolute -bottom-5 left-0  bg-cyan-500 text-white rounded-2xl p-5 shadow-xl"
             >
               {/* <h3 className="font-bold text-xl"></h3> */}
               <p>Digitals Ads</p>
@@ -119,7 +117,7 @@ const Hero = () => {
           </motion.div>
         </div>
 
-    
+       
       </div>
     </section>
   );

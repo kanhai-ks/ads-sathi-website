@@ -236,61 +236,6 @@ export default function Services() {
 
         </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 30,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.8,
-          }}
-          viewport={{
-            once: true,
-          }}
-          className="mt-24 text-center"
-        >
-
-          <div className="bg-white/10 rounded-3xl p-10">
-
-            <h3 className="text-4xl font-bold text-white mb-4">
-              Ready To Grow Your Business?
-            </h3>
-
-            <p className="text-blue-100 mb-8">
-              Contact ADS SATHI and create powerful digital campaigns.
-            </p>
-
-            <div className="flex flex-wrap justify-center gap-4">
-
-              <a
-                href="tel:+9779702660378"
-                className="bg-cyan-400 text-blue-950 px-8 py-4 rounded-full font-bold flex items-center gap-3 hover:scale-105 transition"
-              >
-                <FaPhoneAlt />
-
-                Call Now
-              </a>
-
-              <a
-                href="mailto:adssathi123@gmail.com"
-                className="border border-white/20 px-8 py-4 rounded-full text-white flex items-center gap-3 hover:bg-white/10 transition"
-              >
-                <FaEnvelope />
-
-                Send Email
-              </a>
-
-            </div>
-
-          </div>
-
-        </motion.div>
-
       </div>
     </section>
   );

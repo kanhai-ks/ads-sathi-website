@@ -1,4 +1,7 @@
 import { useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+
 import { motion } from "framer-motion";
 import {
   FaPhoneAlt,
@@ -6,7 +9,6 @@ import {
   FaWhatsapp,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-// import API from "../api/axios";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -25,15 +27,47 @@ export default function Contact() {
       [e.target.name]: e.target.value,
     });
 
-  const submit = async (e) => {
+  // const submit = async (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     setLoading(true);
+
+  //     const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+  //     await axios.post(`${API_BASE_URL}/api/contact`, form);
+
+
+  //     alert("Message Sent Successfully!");
+
+  //     setForm({
+  //       name: "",
+  //       email: "",
+  //       phone: "",
+  //       whatsapp: "",
+  //       message: "",
+  //     });
+  //   } catch (error) {
+  //     alert("Failed to send message");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+const submit = async (e) => {
     e.preventDefault();
 
     try {
       setLoading(true);
 
-      await API.post("/contact", form);
+      const API_BASE_URL =
+        import.meta.env.VITE_API_BASE_URL ||
+        "http://localhost:5000";
 
-      alert("Message Sent Successfully!");
+      await axios.post(
+        `${API_BASE_URL}/api/contact`,
+        form
+      );
+
+      toast.success("Message sent successfully 🚀");
 
       setForm({
         name: "",
@@ -43,12 +77,14 @@ export default function Contact() {
         message: "",
       });
     } catch (error) {
-      alert("Failed to send message");
+      toast.error(
+        error?.response?.data?.message ||
+          "Failed to send message"
+      );
     } finally {
       setLoading(false);
     }
   };
-
   return (
     <section
       id="contact"
@@ -88,87 +124,139 @@ export default function Contact() {
 
         <div className="grid lg:grid-cols-2 gap-10">
           {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="bg-white/10 backdrop-blur-lg border border-white/10 rounded-3xl p-8"
-          >
-            <h3 className="text-3xl font-bold text-white mb-8">
-              Contact Information
-            </h3>
+<motion.div
+  initial={{ opacity: 0, x: -80 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.7 }}
+  viewport={{ once: true }}
+  className="bg-white/10 backdrop-blur-lg border border-white/10 rounded-3xl p-8"
+>
+  <h3 className="text-3xl font-bold text-white mb-8">
+    Contact Information
+  </h3>
 
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-300">
-                  <FaPhoneAlt size={22} />
-                </div>
+  <div className="space-y-6">
 
-                <div>
-                  <h4 className="text-white font-semibold">Phone</h4>
-                  <p className="text-blue-100">
-                    +977 9702660378
-                  </p>
-                </div>
-              </div>
+    {/* Phone */}
+<motion.div
+  whileHover={{ x: 5 }}
+  onClick={() => {
+    navigator.clipboard.writeText("+9779702660378");
 
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-300">
-                  <FaWhatsapp size={24} />
-                </div>
+    const text = document.getElementById("phone-copy");
+    text.innerText = "Copied ✓";
 
-                <div>
-                  <h4 className="text-white font-semibold">
-                    WhatsApp
-                  </h4>
-                  <p className="text-blue-100">
-                    +977 9702660378
-                  </p>
-                </div>
-              </div>
+    setTimeout(() => {
+      text.innerText = "Click to copy";
+    }, 2000);
+  }}
+  className="flex items-center gap-4 group cursor-pointer"
+>
 
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-300">
-                  <FaEnvelope size={22} />
-                </div>
+  <div className="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-300 group-hover:scale-110 transition">
+    <FaPhoneAlt size={22} />
+  </div>
 
-                <div>
-                  <h4 className="text-white font-semibold">
-                    Email
-                  </h4>
-                  <p className="text-blue-100">
-                    adssathi123@gmail.com
-                  </p>
-                </div>
-              </div>
+  <div>
+    <h4 className="text-white font-semibold">
+      Phone
+    </h4>
 
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-300">
-                  <FaMapMarkerAlt size={22} />
-                </div>
+    <span className="text-blue-100 group-hover:text-cyan-300">
+      +977 9702660378
+    </span>
 
-                <div>
-                  <h4 className="text-white font-semibold">
-                    Address
-                  </h4>
-                  <p className="text-blue-100">
-                    Birgunj-16, Parsa, Nepal
-                  </p>
-                </div>
-              </div>
-            </div>
+    <p
+      id="phone-copy"
+      className="text-xs text-cyan-300 opacity-0 group-hover:opacity-100 transition"
+    >
+      Click to copy
+    </p>
+  </div>
 
-            <div className="mt-10 p-5 rounded-2xl bg-white/5 border border-white/10">
-              <h4 className="text-xl font-semibold text-white mb-2">
-                ADS SATHI
-              </h4>
+</motion.div>
+    {/* WhatsApp */}
+    <motion.a
+      href="https://wa.me/9779702660378"
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ x: 5 }}
+      className="flex items-center gap-4 group cursor-pointer"
+    >
+      <div className="w-14 h-14 rounded-xl bg-green-500/20 flex items-center justify-center text-green-400 group-hover:scale-110 transition">
+        <FaWhatsapp size={24} />
+      </div>
 
-              <p className="text-blue-100">
-                EVOLUTION IN MOTION . AI VIDEO . DIGITAL ADS
-              </p>
-            </div>
-          </motion.div>
+      <div>
+        <h4 className="text-white font-semibold">
+          WhatsApp
+        </h4>
+
+        <span className="text-blue-100 hover:text-green-300 hover:underline">
+          Chat on WhatsApp
+        </span>
+      </div>
+    </motion.a>
+
+    {/* Email → Opens Gmail */}
+    <motion.a
+      href="https://mail.google.com/mail/?view=cm&fs=1&to=adssathi123@gmail.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ x: 5 }}
+      className="flex items-center gap-4 group cursor-pointer"
+    >
+      <div className="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-300 group-hover:scale-110 transition">
+        <FaEnvelope size={22} />
+      </div>
+
+      <div>
+        <h4 className="text-white font-semibold">
+          Email
+        </h4>
+
+        <span className="text-blue-100 hover:text-cyan-300 hover:underline">
+          adssathi123@gmail.com
+        </span>
+      </div>
+    </motion.a>
+
+    {/* Address */}
+    <motion.a
+      href="https://maps.google.com/?q=Birgunj-16,Parsa,Nepal"
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ x: 5 }}
+      className="flex items-center gap-4 group cursor-pointer"
+    >
+      <div className="w-14 h-14 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-300 group-hover:scale-110 transition">
+        <FaMapMarkerAlt size={22} />
+      </div>
+
+      <div>
+        <h4 className="text-white font-semibold">
+          Address
+        </h4>
+
+        <span className="text-blue-100 hover:text-cyan-300 hover:underline">
+          Birgunj-16, Parsa, Nepal
+        </span>
+      </div>
+    </motion.a>
+
+  </div>
+
+  {/* Bottom Card */}
+  <div className="mt-10 p-5 rounded-2xl bg-white/5 border border-white/10">
+    <h4 className="text-xl font-semibold text-white mb-2">
+      ADS SATHI
+    </h4>
+
+    <p className="text-blue-100">
+      EVOLUTION IN MOTION • AI VIDEO • DIGITAL ADS
+    </p>
+  </div>
+</motion.div>
 
           {/* Contact Form */}
           <motion.form
