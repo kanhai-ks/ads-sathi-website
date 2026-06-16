@@ -1,19 +1,21 @@
-require("dotenv").config();
+const express = require("express");
+const cors = require("cors");
 
-const app = require("./app");
-const connectDB = require("./config/db");
+const app = express();
 
-const PORT = process.env.PORT || 5000;
+app.use(cors());
 
-(async () => {
-  try {
-    await connectDB();
+app.use(express.json());
 
-    app.listen(PORT, () => {
-      console.log(`Server running on ${PORT}`);
-    });
+// Home route
+app.get("/", (req, res) => {
+  res.send("ADS SATHI Backend Running 🚀");
+});
 
-  } catch (err) {
-    console.error(err);
-  }
-})();
+// API
+app.use(
+  "/api/contact",
+  require("./routes/contactRoutes")
+);
+
+module.exports = app;
