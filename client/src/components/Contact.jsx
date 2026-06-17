@@ -27,31 +27,6 @@ export default function Contact() {
       [e.target.name]: e.target.value,
     });
 
-  // const submit = async (e) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     setLoading(true);
-
-  //     const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
-  //     await axios.post(`${API_BASE_URL}/api/contact`, form);
-
-
-  //     alert("Message Sent Successfully!");
-
-  //     setForm({
-  //       name: "",
-  //       email: "",
-  //       phone: "",
-  //       whatsapp: "",
-  //       message: "",
-  //     });
-  //   } catch (error) {
-  //     alert("Failed to send message");
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
 const submit = async (e) => {
     e.preventDefault();
 
@@ -59,8 +34,7 @@ const submit = async (e) => {
       setLoading(true);
 
       const API_BASE_URL =
-        import.meta.env.VITE_API_BASE_URL ||
-        "http://localhost:5000";
+        import.meta.env.VITE_API_BASE_URL;
 
       await axios.post(
         `${API_BASE_URL}/api/contact`,

@@ -1,44 +1,31 @@
 const mongoose = require("mongoose");
-const dotenv = require("dotenv");
+const dns = require("dns");
+require("dotenv").config();
 
-dotenv.config();
+// Use public DNS
+dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
 const connectDB = async () => {
   try {
-    const isProduction =
-      process.env.NODE_ENV === "production";
-
-    const MONGO_URI = isProduction
-      ? process.env.MONGODB_URL_ATLAS
-      : process.env.MONGODB_URL_LOCAL;
+    const MONGO_URI = process.env.MONGODB_URL;
 
     if (!MONGO_URI) {
-      throw new Error(
-        "MongoDB URI not found in .env"
-      );
+      throw new Error("MongoDB URI missing");
     }
-
-    console.log("🔄 Connecting MongoDB...");
-    console.log(
-      "Environment:",
-      process.env.NODE_ENV || "development"
-    );
 
     await mongoose.connect(MONGO_URI);
 
-    console.log(
-      "✅ MongoDB Connected Successfully"
-    );
-
+    console.log("✅ MongoDB Connected");
   } catch (err) {
     console.error(
-      "❌ MongoDB connection failed:"
+      "❌ MongoDB connection failed:",
+      err.message
     );
-
-    console.error(err.message);
 
     process.exit(1);
   }
 };
 
 module.exports = connectDB;
+
+
