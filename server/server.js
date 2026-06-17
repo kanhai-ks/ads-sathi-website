@@ -1,19 +1,53 @@
+// require("dotenv").config();
+
+// const app = require("./app");
+// const connectDB = require("./config/db");
+
+// const PORT = process.env.PORT || 5000;
+
+// (async () => {
+//   try {
+//     await connectDB();
+
+//     app.listen(PORT, () => {
+//       console.log(`Server running on ${PORT}`);
+//     });
+
+//   } catch (err) {
+//     console.error(err);
+//   }
+// })();
+
 require("dotenv").config();
 
-const app = require("./app");
+const express = require("express");
+const cors = require("cors");
+
 const connectDB = require("./config/db");
 
+const app = express();
 const PORT = process.env.PORT || 5000;
 
-(async () => {
-  try {
-    await connectDB();
+// Connect MongoDB
+connectDB();
 
-    app.listen(PORT, () => {
-      console.log(`Server running on ${PORT}`);
-    });
+// Middleware
+app.use(cors());
 
-  } catch (err) {
-    console.error(err);
-  }
-})();
+app.use(express.json());
+
+// Home Route
+app.get("/", (req, res) => {
+  res.send("ADS SATHI Backend Running 🚀");
+});
+
+// API Routes
+app.use(
+  "/api/contact",
+  require("./routes/contactRoutes")
+);
+
+// Start Server
+app.listen(PORT, () => {
+  console.log(`✅ Server running on ${PORT}`);
+});
