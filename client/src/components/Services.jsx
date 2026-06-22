@@ -1,4 +1,5 @@
 
+
 import React from "react";
 import { motion } from "framer-motion";
 import {
@@ -8,8 +9,6 @@ import {
   FaPalette,
   FaInstagram,
   FaRocket,
-  FaPhoneAlt,
-  FaEnvelope,
 } from "react-icons/fa";
 
 const services = [
@@ -18,7 +17,6 @@ const services = [
     title: "AI Video Creation",
     description:
       "Professional AI-generated promotional videos for businesses and brands.",
-
     features: [
       "AI Generated Videos",
       "Voice Over",
@@ -32,7 +30,6 @@ const services = [
     title: "Video Editing",
     description:
       "Creative editing for reels, ads and business promotional videos.",
-
     features: [
       "Professional Editing",
       "Transitions",
@@ -46,7 +43,6 @@ const services = [
     title: "Digital Advertising",
     description:
       "Powerful advertising campaigns to increase reach and sales.",
-
     features: [
       "Facebook Ads",
       "Instagram Ads",
@@ -60,7 +56,6 @@ const services = [
     title: "Creative Design",
     description:
       "Eye-catching visual designs for branding and promotion.",
-
     features: [
       "Social Media Posts",
       "Banner Design",
@@ -74,7 +69,6 @@ const services = [
     title: "Social Media Management",
     description:
       "Complete management of your business social platforms.",
-
     features: [
       "Content Planning",
       "Regular Posting",
@@ -88,7 +82,6 @@ const services = [
     title: "Branding & Content Creation",
     description:
       "Build a professional brand identity and digital presence.",
-
     features: [
       "Brand Building",
       "Content Creation",
@@ -162,8 +155,9 @@ export default function Services() {
           <div className="w-24 h-1 bg-cyan-400 mx-auto rounded-full mb-6"></div>
 
           <p className="text-blue-100 max-w-3xl mx-auto text-lg">
-            ADS SATHI provides AI-powered marketing, digital advertising,
-            branding, creative content and social media solutions.
+            ADS SATHI provides AI-powered marketing,
+            digital advertising, branding,
+            creative content and social media solutions.
           </p>
         </motion.div>
 
@@ -171,6 +165,7 @@ export default function Services() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
           {services.map((service, index) => (
+
             <motion.div
               key={index}
               initial={{
@@ -192,10 +187,31 @@ export default function Services() {
               viewport={{
                 once: true,
               }}
-              className="bg-white/10 backdrop-blur-xl border border-white/10 rounded-3xl p-8"
+              className="
+                bg-white/10
+                backdrop-blur-xl
+                border
+                border-white/10
+                rounded-3xl
+                p-8
+              "
             >
+
               {/* Icon */}
-              <div className="w-16 h-16 rounded-2xl bg-cyan-500/20 text-cyan-300 flex items-center justify-center text-3xl mb-6">
+              <div
+                className="
+                w-16
+                h-16
+                rounded-2xl
+                bg-cyan-500/20
+                text-cyan-300
+                flex
+                items-center
+                justify-center
+                text-3xl
+                mb-6
+              "
+              >
                 {service.icon}
               </div>
 
@@ -227,11 +243,37 @@ export default function Services() {
 
               </ul>
 
-              <button className="w-full mt-8 bg-white text-blue-900 py-3 rounded-xl font-bold hover:bg-cyan-100 transition">
-                Learn More
-              </button>
+              {/* Learn More → WhatsApp */}
+              <a
+                href={`https://wa.me/9779702660378?text=${encodeURIComponent(
+                  `Hello ADS SATHI, I want to know more about ${service.title}`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+
+                <button
+                  className="
+                    w-full
+                    mt-8
+                    bg-white
+                    text-blue-900
+                    py-3
+                    rounded-xl
+                    font-bold
+                    hover:bg-green-100
+                    hover:scale-105
+                    transition
+                    duration-300
+                  "
+                >
+                  Learn More →
+                </button>
+
+              </a>
 
             </motion.div>
+
           ))}
 
         </div>
@@ -240,4 +282,3 @@ export default function Services() {
     </section>
   );
 }
-

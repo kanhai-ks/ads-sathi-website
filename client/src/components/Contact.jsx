@@ -41,7 +41,7 @@ const submit = async (e) => {
         form
       );
 
-      toast.success("Message sent successfully 🚀");
+      toast.success("Message sent successfully ");
 
       setForm({
         name: "",

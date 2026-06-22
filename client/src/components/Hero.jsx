@@ -1,16 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  FaPhoneAlt,
-  FaEnvelope,
-  FaMapMarkerAlt,
   FaPlay,
 } from "react-icons/fa";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-blue-700 relative overflow-hidden">
-      
+    <section
+      id="home"
+      className="min-h-screen bg-gradient-to-br from-blue-950 via-blue-900 to-blue-700 relative overflow-hidden"
+    >
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
@@ -41,21 +40,30 @@ const Hero = () => {
 
             <p className="mt-6 text-lg text-blue-100 leading-relaxed">
               ADS SATHI helps businesses grow through AI-generated videos,
-              social media marketing, branding, content creation, graphic
-              design, and digital advertising solutions.
+              social media marketing, branding, content creation,
+              graphic design, and digital advertising solutions.
             </p>
 
-            
             {/* Buttons */}
             <div className="flex flex-wrap gap-4 mt-10">
-              <button className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:scale-105 transition">
-                Contact Us
-              </button>
 
-              <button className="flex items-center gap-2 border border-white/30 px-8 py-3 rounded-full hover:bg-white/10 transition">
+              {/* Contact Button */}
+              <a
+                href="#contact"
+                className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:scale-105 transition"
+              >
+                Contact Us
+              </a>
+
+              {/* View Services Button */}
+              <a
+                href="#services"
+                className="flex items-center gap-2 border border-white/30 px-8 py-3 rounded-full hover:bg-white/10 transition"
+              >
                 <FaPlay />
                 View Services
-              </button>
+              </a>
+
             </div>
           </motion.div>
 
@@ -82,11 +90,11 @@ const Hero = () => {
               <img
                 src="/ads-sathi.png"
                 alt="ADS SATHI"
-                className="relative rounded-3xl shadow-2xl border border-white/10"
+                className="relative h-[500px] w-full object-contain rounded-3xl shadow-2xl border border-white/10"
               />
             </motion.div>
 
-            {/*  */}
+            {/* Bottom Badge */}
             <motion.div
               animate={{
                 y: [0, 15, 0],
@@ -95,13 +103,12 @@ const Hero = () => {
                 duration: 3,
                 repeat: Infinity,
               }}
-              className="absolute -bottom-5 left-0  bg-cyan-500 text-white rounded-2xl p-5 shadow-xl"
+              className="absolute -bottom-5 left-0 bg-cyan-500 text-white rounded-2xl p-5 shadow-xl"
             >
-              {/* <h3 className="font-bold text-xl"></h3> */}
-              <p>Digitals Ads</p>
+              <p>Digital Ads</p>
             </motion.div>
 
-            {/* Service Badge */}
+            {/* Top Badge */}
             <motion.div
               animate={{
                 y: [0, -15, 0],
@@ -115,14 +122,11 @@ const Hero = () => {
               🎬 AI Video Services
             </motion.div>
           </motion.div>
-        </div>
 
-       
+        </div>
       </div>
     </section>
   );
 };
 
 export default Hero;
-
-

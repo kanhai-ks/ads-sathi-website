@@ -1,27 +1,6 @@
-// require("dotenv").config();
-
-// const app = require("./app");
-// const connectDB = require("./config/db");
-
-// const PORT = process.env.PORT || 5000;
-
-// (async () => {
-//   try {
-//     await connectDB();
-
-//     app.listen(PORT, () => {
-//       console.log(`Server running on ${PORT}`);
-//     });
-
-//   } catch (err) {
-//     console.error(err);
-//   }
-// })();
-
-require("dotenv").config();
-
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 
 const connectDB = require("./config/db");
 
@@ -38,7 +17,7 @@ app.use(express.json());
 
 // Home Route
 app.get("/", (req, res) => {
-  res.send("ADS SATHI Backend Running 🚀");
+  res.send("ADS SATHI Backend Running ");
 });
 
 // API Routes
@@ -49,5 +28,5 @@ app.use(
 
 // Start Server
 app.listen(PORT, () => {
-  console.log(`✅ Server running on ${PORT}`);
+  console.log(` Server running on ${PORT}`);
 });

@@ -58,7 +58,7 @@ export default function OfferPopup() {
     playsInline
   >
     <source src="/ai-video.mp4" type="video/mp4" />
-    Your browser does not support video.
+
   </video>
 </div>
         {/* CTA */}
@@ -68,7 +68,7 @@ export default function OfferPopup() {
           rel="noopener noreferrer"
           className="mt-5 block w-full rounded-lg bg-green-500 py-3 text-center font-semibold text-white transition hover:bg-green-600"
         >
-          📲 Get Offer Now
+           Get Offer Now
         </a>
 
       </div>

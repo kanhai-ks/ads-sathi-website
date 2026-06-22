@@ -13,6 +13,7 @@ const plans = [
       "All Festival Contents",
     ],
   },
+
   {
     name: "Plan B",
     price: "Rs 6,060",
@@ -24,6 +25,7 @@ const plans = [
       "Social Media Handling",
     ],
   },
+
   {
     name: "Plan C",
     price: "Rs 13,460",
@@ -37,15 +39,26 @@ const plans = [
   },
 ];
 
-
-
 export default function Pricing() {
+  const openWhatsApp = (plan) => {
+    const msg =
+      `Hello ADS SATHI 👋%0A%0A` +
+      `I am interested in ${plan.name}%0A` +
+      `Price: ${plan.price}%0A%0A` +
+      `Please provide more details.`;
+
+    window.open(
+      `https://wa.me/9779702660378?text=${msg}`,
+      "_blank"
+    );
+  };
+
   return (
     <section
       id="pricing"
       className="py-24 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-700 relative overflow-hidden"
     >
-      {/* Background Effects */}
+      {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
 
@@ -53,6 +66,7 @@ export default function Pricing() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
+
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -77,8 +91,9 @@ export default function Pricing() {
           </p>
         </motion.div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+        {/* Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
           {plans.map((plan, index) => (
             <motion.div
               key={index}
@@ -117,7 +132,9 @@ export default function Pricing() {
                   {plan.price}
                 </span>
 
-                <p className="text-blue-100 mt-2">Per Month</p>
+                <p className="text-blue-100 mt-2">
+                  Per Month
+                </p>
               </div>
 
               <ul className="space-y-4 mb-8">
@@ -126,13 +143,19 @@ export default function Pricing() {
                     key={i}
                     className="flex items-center gap-3 text-blue-100"
                   >
-                    <Check size={18} className="text-cyan-300" />
+                    <Check
+                      size={18}
+                      className="text-cyan-300"
+                    />
+
                     {feature}
                   </li>
                 ))}
               </ul>
 
+              {/* WhatsApp Button */}
               <button
+                onClick={() => openWhatsApp(plan)}
                 className={`w-full py-3 rounded-xl font-semibold transition ${
                   plan.popular
                     ? "bg-cyan-400 text-blue-950 hover:bg-cyan-300"
@@ -141,11 +164,10 @@ export default function Pricing() {
               >
                 Get Started
               </button>
+
             </motion.div>
           ))}
         </div>
-
-      
 
         {/* CTA */}
         <motion.div
@@ -160,17 +182,20 @@ export default function Pricing() {
           </h3>
 
           <p className="text-blue-100 mb-8">
-            We can create a custom digital marketing plan specifically
-            tailored for your business goals and budget.
+            We can create a custom package for your business.
           </p>
 
           <a
-            href="tel:+9779702660378"
+            href="https://wa.me/9779702660378?text=Hello%20ADS%20SATHI%2C%20I%20need%20a%20custom%20package"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block bg-cyan-400 text-blue-950 px-8 py-4 rounded-xl font-bold hover:bg-cyan-300 transition"
           >
             Contact ADS SATHI
           </a>
+
         </motion.div>
+
       </div>
     </section>
   );
