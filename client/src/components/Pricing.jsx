@@ -5,36 +5,32 @@ import { Check, Star } from "lucide-react";
 const plans = [
   {
     name: "Plan A",
-    price: "Rs 3,500",
+    price: "Rs 2,500",
     features: [
-      "FB/Insta Boost - $5",
-      "Social Media Management",
-      "12 Social Media Posts",
-      "All Festival Contents",
+      "1 AI Video – Rs 1,200",
+      "1 Video Editing – Rs 1,100",
+      "1 Social Media Post – Rs 200",
     ],
   },
 
   {
     name: "Plan B",
-    price: "Rs 6,060",
+    price: "Rs 5,000",
     popular: true,
     features: [
-      "FB/Insta Boost - $15",
-      "16 Social Media Posts",
-      "All Festival Contents",
-      "Social Media Handling",
+      "3 AI Videos – Rs 3,000",
+      "2 Video Editing – Rs 2,000",
+      "3 Social Media Posts – Free",
     ],
   },
 
   {
     name: "Plan C",
-    price: "Rs 13,460",
+    price: "Rs 8,000",
     features: [
-      "16 Custom Posts",
-      "All Festival Contents",
-      "Social Media Handling",
-      "Social Media Boost - $26",
-      "1 Brand Video Content",
+      "5 AI Videos – Rs 5,000",
+      "3 Video Editing – Rs 3,000",
+      "5 Social Media Posts – Free",
     ],
   },
 ];

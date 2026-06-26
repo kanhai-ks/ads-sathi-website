@@ -1,4 +1,3 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import {
@@ -22,19 +21,20 @@ export default function Footer() {
 
       <div className="container mx-auto px-6 relative z-10">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+        {/* GRID */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 ">
 
-          {/* Logo */}
+          {/* LOGO */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center sm:text-left"
+            className="text-left col-span-2 lg:col-span-1 "
           >
             <img
               src="/ads_sathi_logo.png"
               alt="ADS SATHI"
-              className="w-28 md:w-32 mx-auto sm:mx-0 mb-4"
+              className="w-28 md:w-32 "
             />
 
             <p className="text-white/80 leading-7 text-sm md:text-base">
@@ -45,7 +45,7 @@ export default function Footer() {
             </p>
 
             {/* Social */}
-            <div className="flex justify-center sm:justify-start gap-4 mt-6">
+            <div className="flex gap-4 mt-1">
 
               <motion.a
                 href="https://www.facebook.com/profile.php?id=61589615277244"
@@ -70,11 +70,11 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Quick Links */}
+          {/* QUICK LINKS */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-center sm:text-left"
+            className="text-left"
           >
             <h3 className="text-white font-bold mb-5 text-lg">
               Quick Links
@@ -102,11 +102,11 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Services */}
+          {/* SERVICES */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-center sm:text-left"
+            className="text-left"
           >
             <h3 className="text-white font-bold mb-5 text-lg">
               Our Services
@@ -121,11 +121,11 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Contact */}
+          {/* CONTACT */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-center sm:text-left"
+            className="text-left col-span-2 lg:col-span-1"
           >
             <h3 className="text-white font-bold mb-5 text-lg">
               Contact Us
@@ -136,7 +136,7 @@ export default function Footer() {
               {/* Email */}
               <a
                 href="mailto:adssathi123@gmail.com"
-                className="flex items-center justify-center sm:justify-start gap-3 group"
+                className="flex items-center gap-3"
               >
                 <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-300">
                   <FaEnvelope />
@@ -152,7 +152,7 @@ export default function Footer() {
                 onClick={() =>
                   navigator.clipboard.writeText("+9779702660378")
                 }
-                className="flex items-center justify-center sm:justify-start gap-3 cursor-pointer"
+                className="flex items-center gap-3 cursor-pointer"
               >
                 <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-300">
                   <FaPhoneAlt />
@@ -168,7 +168,7 @@ export default function Footer() {
                 href="https://maps.google.com/?q=Birgunj-16,Parsa,Nepal"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center sm:justify-start gap-3"
+                className="flex items-center gap-3"
               >
                 <div className="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-300">
                   <FaMapMarkerAlt />
@@ -190,10 +190,11 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           className="border-t border-white/20 mt-12 pt-6 text-center text-white/60 text-sm"
         >
-          © 2026 ADS SATHI • All Rights Reserved • EVOLUTION IN MOTION 🚀
+          © 2026 ADS SATHI • All Rights Reserved • EVOLUTION IN MOTION
         </motion.div>
 
       </div>
+
     </footer>
   );
 }

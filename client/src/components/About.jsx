@@ -37,7 +37,7 @@ export default function About() {
           <p className="text-lg md:text-xl text-blue-100 leading-relaxed">
             ADS SATHI is a creative advertising and digital marketing agency
             helping businesses grow through AI-generated videos, digital ads,
-            branding, graphic design, and social media marketing solutions.
+            branding, graphic design and social media marketing solutions.
           </p>
         </motion.div>
 
@@ -62,11 +62,12 @@ export default function About() {
             >
               <div className="absolute -inset-4 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-3xl blur-2xl"></div>
 
+              
               <img
-                src="/ads-sathi.png"
-                alt="Krishna Kumar Sah"
-                className="relative rounded-3xl shadow-2xl border border-white/10 w-full"
-              />
+  src="/ads-sathi.png"
+  alt="ADS SATHI Digital Marketing"
+  className="relative rounded-3xl shadow-2xl border border-white/10 w-full"
+/>
             </motion.div>
           </motion.div>
 
@@ -86,17 +87,23 @@ export default function About() {
               Krishna Kumar Sah
             </h4>
 
-            <p className="text-blue-100 leading-relaxed mb-6">
-              Krishna Kumar Sah founded ADS SATHI with a vision to help
-              businesses leverage the power of digital marketing, AI-generated
-              content, branding, and creative advertising.
-            </p>
+            
+<p className="text-blue-100 leading-relaxed mb-6">
+  Krishna Kumar Sah founded ADS SATHI with a mission to help businesses grow
+  through AI-generated videos, professional video editing, branding,
+  digital advertising and creative marketing solutions.
+</p>
 
-            <p className="text-blue-100 leading-relaxed mb-8">
-              Today, ADS SATHI provides innovative marketing solutions across
-              Birgunj, Kathmandu, Bharatpur, Hetauda and beyond, helping brands
-              grow faster through modern digital strategies.
-            </p>
+<p className="text-blue-100 leading-relaxed mb-8">
+  Today, ADS SATHI empowers brands with innovative marketing strategies and modern digital solutions that increase
+  visibility, engagement and business growth.
+</p>
+
+
+
+
+
+
 
             <div className="flex flex-wrap gap-3">
               {[
