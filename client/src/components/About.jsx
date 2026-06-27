@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-24 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-700 relative overflow-hidden"
+      className="py-10 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-700 relative overflow-hidden"
     >
       {/* Background Effects */}
       <div className="absolute inset-0">
@@ -15,7 +15,7 @@ export default function About() {
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-cyan-400/20 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative container mx-auto px-6">
+      <div className="relative container mx-auto px-6 ">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -77,9 +77,10 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-white"
+            className="text-white     text-center
+              lg:text-left"
           >
-            <h3 className="text-3xl md:text-4xl font-bold mb-6">
+            <h3 className="text-3xl md:text-4xl font-bold mb-6 ">
               Meet Our Founder & CEO
             </h3>
 
@@ -100,12 +101,7 @@ export default function About() {
 </p>
 
 
-
-
-
-
-
-            <div className="flex flex-wrap gap-3">
+            <div className=" flex flex-wrap gap-3 justify-center lg:justify-start ">
               {[
                 "AI Video",
                 "Digital Ads",
@@ -115,7 +111,7 @@ export default function About() {
               ].map((item, index) => (
                 <span
                   key={index}
-                  className="px-4 py-2 rounded-full bg-white/10 border border-white/10 text-sm"
+                  className="px-4 py-2 rounded-full bg-white/10 border border-white/10 text-sm "
                 >
                   {item}
                 </span>

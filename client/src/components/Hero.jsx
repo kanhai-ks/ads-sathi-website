@@ -10,12 +10,12 @@ const Hero = () => {
     >
       {/* Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-96 h-90 bg-blue-500/20 rounded-full blur-3xl"></div>
 
         <div className="absolute bottom-10 right-10 w-80 h-80 bg-cyan-400/20 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative container mx-auto px-6 pt-24 pb-20">
+      <div className="relative container mx-auto px-6 pt-25 pb-12">
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -46,10 +46,11 @@ const Hero = () => {
                   shadow-2xl
                   border
                   border-white/10
+                  h-[600px]
                   w-full
                   max-w-[700px]
                   mx-auto
-                  object-contain
+                  object-fill
                 "
               />
             </motion.div>
@@ -114,7 +115,7 @@ const Hero = () => {
               lg:text-left
             "
           >
-            <span className="inline-block px-4 py-2 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-100 mb-6">
+            <span className="inline-block px-4 py-2 rounded-full bg-blue-500/20  border border-blue-400/30 text-blue-100 mb-5">
               EVOLUTION IN MOTION
             </span>
 
